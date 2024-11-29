@@ -6,7 +6,7 @@ import os
 import time
 from . import models
 from .database import engine
-from .routers import posts, users
+from .routers import posts, users, auth
 
 
 models.Base.metadata.create_all(bind=engine)
@@ -58,6 +58,7 @@ def find_post_index(id):
 
 app.include_router(posts.router)
 app.include_router(users.router)
+app.include_router(auth.router)
 
 @app.get('/')
 async def home():
