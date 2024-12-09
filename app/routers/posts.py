@@ -31,7 +31,6 @@ async def create_posts(post: schemas.PostCreate, db: Session = Depends(get_db), 
     # new_post = cursor.fetchone()
     # conn.commit()
     
-    print(current_user)
     new_post = models.Post(**post.model_dump())
     db.add(new_post)
     db.commit()
